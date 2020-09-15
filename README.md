@@ -21,3 +21,29 @@ BNNs are trained using Bayed-by-backprop.
 
 ## Results
 
+The architecture of the network was composed of an input layer, 2 convolutional bayesian layers alternating with 2 max pooling layers, then a fully connected bayesian layer and last the output layer.
+
+On the test set the network achieved 98.1% accuracy, then selecting 0.15 as threshold every prediction where the network wasn't sure was discarded. In particular, 2.5% of the predictions were discarded, achieving 99.86% accuracy on the remaining images. When the net was sure about the prediction, the classification was almost always correct.
+
+![res](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/results.png)
+
+These images were wrongly predicted and discarded.
+
+![cin_incerto](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/five_wrong_unc.png) ![set_incerto](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/seven_wrong_unc.png)
+
+However, in some cases the net predicted the right outcome, but discarded the images due to high uncertainty
+
+![sei_giusto](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/six_right_unc.png) ![cin_giusto](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/five_right_unc.png)
+
+And lastly, some images were wrongly predicted, but with low uncertainty
+
+![nov_sbagliato](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/nine_wrong.png) ![cin_sbagliato](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/five_wrong.png)
+
+The network was then tested on a completely different dataset: emnist, wich is composed of letters instead of numbers. A classic CNN would have predicted the results according the knowledge got from mnist dataset and therefore the results would have been bad. Indeed, [CNN](https://github.com/Ste29/Uncertainty-analysis/blob/master/scripts/Simple%20CNN%20MNIST.ipynb) achieve 99% accuracy on mnist and 1.9% on emnist. 
+It would have been useful if a classifier could recognize when it should not take a decision, i.e. different kind of data from its training set, for this reason the BNN was tested also on emnist.
+
+![emn](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/results_emnits.png)
+
+Many of the predicted cases were images similar to those of the mnist like the following ones:
+
+![d](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/D.png) ![s](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/S.png)
