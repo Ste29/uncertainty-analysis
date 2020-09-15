@@ -40,7 +40,7 @@ And lastly, some images were wrongly predicted, but with low uncertainty
 ![nov_sbagliato](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/nine_wrong.png) ![cin_sbagliato](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/five_wrong.png)
 
 The network was then tested on a completely different dataset: emnist, wich is composed of letters instead of numbers. A classic CNN would have predicted the results according the knowledge got from mnist dataset and therefore the results would have been bad. Indeed, [CNN](https://github.com/Ste29/Uncertainty-analysis/blob/master/scripts/Simple%20CNN%20MNIST.ipynb) achieve 99% accuracy on mnist and 1.9% on emnist. 
-It would have been useful if a classifier could recognize when it should not take a decision, i.e. different kind of data from its training set, for this reason the BNN was tested also on emnist.
+It would have been useful if a classifier could recognize when it should not take a decision, i.e. different kind of data from its training set, for this reason the BNN was tested also on emnist. In particular, the BNN refused to predict 60% of the images, wich means the net recognized in the majority of cases it wasn't able to classify such kind of data.
 
 ![emn](https://github.com/Ste29/Uncertainty-analysis/blob/master/img/results_emnits.png)
 
